@@ -91,3 +91,4 @@ lint/tmp/
 
 # Custom additions
 .idea/misc.xml
+AdditionalFiles/
