@@ -2,6 +2,7 @@ package com.example.gamedealtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i(TAG, "Clicked " +
                         dealType.getResources().getResourceEntryName(dealType.getId()));
+                goToDeals();
             }
         });
+    }
+
+    private void goToDeals() {
+        Intent i = new Intent(this, DealsActivity.class);
+        startActivity(i);
     }
 }
