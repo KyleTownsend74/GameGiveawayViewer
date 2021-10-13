@@ -24,15 +24,15 @@
         android:layout_height="1dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
         android:background="#939393" />
 
     <include
-        layout="@layout/item_deal_category"
         android:id="@+id/dealTypePC"
+        layout="@layout/item_deal_category"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"/>
+        android:layout_weight="1" />
 
     <include
         layout="@layout/item_deal_category"

@@ -2,17 +2,21 @@ package com.example.gamedealtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     private View dealTypePC;
     private View dealTypePS;
     private View dealTypeXB;
-    private View dealTypeMisc;
+    private View dealTypeAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,36 +27,44 @@ public class MainActivity extends AppCompatActivity {
         dealTypePC = findViewById(R.id.dealTypePC);
         dealTypePS = findViewById(R.id.dealTypePS);
         dealTypeXB = findViewById(R.id.dealTypeXB);
-        dealTypeMisc = findViewById(R.id.dealTypeAll);
+        dealTypeAll = findViewById(R.id.dealTypeAll);
 
         // Call method to set up UI
         setUpUi();
     }
 
-    // Sets up interactive deal types with visible content
+    // Sets up interactive deal types with UI content
     private void setUpUi() {
         // Set up PC deal type
-        ((ImageView)dealTypePC.findViewById(R.id.ivDealType))
-                .setImageDrawable(getDrawable(R.drawable.ic_baseline_computer_24));
-        ((TextView)dealTypePC.findViewById(R.id.tvDealType))
-                .setText("Browse deals for PC");
+        setSingleTypeUi(dealTypePC, getDrawable(R.drawable.ic_baseline_computer_24),
+                "Browse deals for PC");
 
         // Set up PlayStation deal type
-        ((ImageView)dealTypePS.findViewById(R.id.ivDealType))
-                .setImageDrawable(getDrawable(R.drawable.ic_playstation_logo));
-        ((TextView)dealTypePS.findViewById(R.id.tvDealType))
-                .setText("Browse deals for PlayStation");
+        setSingleTypeUi(dealTypePS, getDrawable(R.drawable.ic_playstation_logo),
+                "Browse deals for PlayStation");
 
         // Set up XBox deal type
-        ((ImageView)dealTypeXB.findViewById(R.id.ivDealType))
-                .setImageDrawable(getDrawable(R.drawable.ic_xbox_logo));
-        ((TextView)dealTypeXB.findViewById(R.id.tvDealType))
-                .setText("Browse deals for XBox");
+        setSingleTypeUi(dealTypeXB, getDrawable(R.drawable.ic_xbox_logo),
+                "Browse deals for XBox");
 
         // Set up Misc deal type
-        ((ImageView)dealTypeMisc.findViewById(R.id.ivDealType))
-                .setImageDrawable(getDrawable(R.drawable.ic_baseline_money_24));
-        ((TextView)dealTypeMisc.findViewById(R.id.tvDealType))
-                .setText("Browse all deals");
+        setSingleTypeUi(dealTypeAll, getDrawable(R.drawable.ic_baseline_money_24),
+                "Browse all deals");
+    }
+
+    // Set up UI for a single deal type
+    private void setSingleTypeUi(View dealType, Drawable icon, String msg) {
+        // Set up visual aspects
+        ((ImageView)dealType.findViewById(R.id.ivDealType)).setImageDrawable(icon);
+        ((TextView)dealType.findViewById(R.id.tvDealType)).setText(msg);
+
+        // Set up click listener
+        dealType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "Clicked " +
+                        dealType.getResources().getResourceEntryName(dealType.getId()));
+            }
+        });
     }
 }
