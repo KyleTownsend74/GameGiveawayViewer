@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DealsActivity"
+    tools:context=".GiveawaysActivity"
     android:orientation="vertical">
 
     <TextView
@@ -18,7 +18,7 @@
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="Deals for Type" />
+        tools:text="Giveaways for Type" />
 
     <View
         android:layout_width="match_parent"

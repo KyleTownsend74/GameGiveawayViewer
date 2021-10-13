@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameDealTracker">
         <activity
-            android:name=".DealsActivity"
+            android:name=".GiveawaysActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

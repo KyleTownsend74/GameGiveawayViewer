@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:text="Game Deal Viewer"
+        android:text="Game Giveaway Viewer"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="25sp"
@@ -28,29 +28,29 @@
         android:background="#939393" />
 
     <include
-        android:id="@+id/dealTypePC"
-        layout="@layout/item_deal_category"
+        android:id="@+id/giveawayTypePC"
+        layout="@layout/item_giveaway_category"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <include
-        layout="@layout/item_deal_category"
-        android:id="@+id/dealTypePS"
+        layout="@layout/item_giveaway_category"
+        android:id="@+id/giveawayTypePS"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <include
-        layout="@layout/item_deal_category"
-        android:id="@+id/dealTypeXB"
+        layout="@layout/item_giveaway_category"
+        android:id="@+id/giveawayTypeXB"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <include
-        layout="@layout/item_deal_category"
-        android:id="@+id/dealTypeAll"
+        layout="@layout/item_giveaway_category"
+        android:id="@+id/giveawayTypeAll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
