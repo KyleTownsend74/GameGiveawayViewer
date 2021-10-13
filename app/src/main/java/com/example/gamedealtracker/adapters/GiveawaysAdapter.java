@@ -1,6 +1,8 @@
 package com.example.gamedealtracker.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.gamedealtracker.R;
 import com.example.gamedealtracker.models.Giveaway;
 
@@ -57,7 +60,10 @@ public class GiveawaysAdapter extends RecyclerView.Adapter<GiveawaysAdapter.View
         }
 
         public void bind(Giveaway giveaway) {
-            Glide.with(context).load(giveaway.getThumbnailUrl()).into(ivGiveawayItem);
+            Glide.with(context)
+                    .load(giveaway.getThumbnailUrl())
+                    .placeholder(new ColorDrawable(Color.LTGRAY))
+                    .into(ivGiveawayItem);
             tvGiveawayItem.setText(giveaway.getTitle());
         }
     }

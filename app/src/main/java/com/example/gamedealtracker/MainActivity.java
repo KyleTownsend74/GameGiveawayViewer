@@ -38,19 +38,19 @@ public class MainActivity extends AppCompatActivity {
     private void setUpUi() {
         // Set up PC giveaway type
         setSingleTypeUi(giveawayTypePC, getDrawable(R.drawable.ic_baseline_computer_24),
-                "Browse deals for PC");
+                "Browse giveaways for PC");
 
         // Set up PlayStation giveaway type
         setSingleTypeUi(giveawayTypePS, getDrawable(R.drawable.ic_playstation_logo),
-                "Browse deals for PlayStation");
+                "Browse giveaways for PlayStation 4");
 
         // Set up XBox giveaway type
         setSingleTypeUi(giveawayTypeXB, getDrawable(R.drawable.ic_xbox_logo),
-                "Browse deals for XBox");
+                "Browse giveaways for Xbox One");
 
         // Set up Misc giveaway type
         setSingleTypeUi(giveawayTypeAll, getDrawable(R.drawable.ic_baseline_money_24),
-                "Browse all deals");
+                "Browse all giveaways deals");
     }
 
     // Set up UI for a single giveaway type
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         goToGiveaways("xbox-one");
                         break;
                     case "giveawayTypeAll":
-                        goToGiveaways(null);
+                        goToGiveaways("");
                         break;
                     default:
                         Log.e(TAG, "Unknown platform.");
