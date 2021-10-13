@@ -22,6 +22,7 @@ import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -51,9 +52,17 @@ public class GiveawaysActivity extends AppCompatActivity {
     }
 
     private void getGiveaways() {
+        // Create URL
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(BASE_URL).newBuilder();
+        String platform = getIntent().getStringExtra("platform");
+        if(platform != null) {
+            urlBuilder.addQueryParameter("platform", platform);
+        }
+        String finalUrl = urlBuilder.build().toString();
+
         // Create request
         Request request = new Request.Builder()
-                .url(BASE_URL)
+                .url(finalUrl)
                 .build();
 
         // Send request asynchronously
@@ -84,6 +93,7 @@ public class GiveawaysActivity extends AppCompatActivity {
                         giveaways.add(Giveaway.fromJsonObject(dataArray.getJSONObject(i)));
                     }
 
+                    // Update recycler view on UI thread
                     GiveawaysActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

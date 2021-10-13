@@ -9,6 +9,7 @@ public class Giveaway {
     private String description;
     private String thumbnailUrl;
 
+    // Create giveaway from Json object
     public static Giveaway fromJsonObject(JSONObject jsonObject) throws JSONException {
         Giveaway giveaway = new Giveaway();
 

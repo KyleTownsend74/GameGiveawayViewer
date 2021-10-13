@@ -63,15 +63,38 @@ public class MainActivity extends AppCompatActivity {
         giveawayType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Clicked " +
-                        giveawayType.getResources().getResourceEntryName(giveawayType.getId()));
-                goToGiveaways();
+                // Get type of giveaway passed in
+                String type = giveawayType.getResources().getResourceEntryName(giveawayType.getId());
+
+                // Pass in correct platform when going to GiveawaysActivity
+                switch(type) {
+                    case "giveawayTypePC":
+                        goToGiveaways("pc");
+                        break;
+                    case "giveawayTypePS":
+                        goToGiveaways("ps4");
+                        break;
+                    case "giveawayTypeXB":
+                        goToGiveaways("xbox-one");
+                        break;
+                    case "giveawayTypeAll":
+                        goToGiveaways(null);
+                        break;
+                    default:
+                        Log.e(TAG, "Unknown platform.");
+                }
             }
         });
     }
 
-    private void goToGiveaways() {
+    // Go to GiveawaysActivity with passed in platform
+    private void goToGiveaways(String platform) {
         Intent i = new Intent(this, GiveawaysActivity.class);
+
+        if(platform != null) {
+            i.putExtra("platform", platform);
+        }
+
         startActivity(i);
     }
 }
