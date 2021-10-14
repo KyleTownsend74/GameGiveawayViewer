@@ -42,4 +42,8 @@ dependencies {
 
     // OkHTTP
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+
+    // Parceler
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
 }

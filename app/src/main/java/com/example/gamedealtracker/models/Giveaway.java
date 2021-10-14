@@ -2,12 +2,14 @@ package com.example.gamedealtracker.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
+@Parcel
 public class Giveaway {
 
-    private String title;
-    private String description;
-    private String thumbnailUrl;
+    String title;
+    String description;
+    String thumbnailUrl;
 
     // Create giveaway from Json object
     public static Giveaway fromJsonObject(JSONObject jsonObject) throws JSONException {
