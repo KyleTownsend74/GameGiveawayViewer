@@ -18,9 +18,10 @@ import org.parceler.Parcels;
 public class DetailActivity extends AppCompatActivity {
 
     private Giveaway curGiveaway;
-    private TextView tvDetailTitle;
     private ImageView ivDetailThumbnail;
+    private TextView tvDetailTitle;
     private TextView tvDetailDescription;
+    private TextView tvDetailType;
     private TextView tvDetailLink;
 
     @Override
@@ -28,9 +29,10 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        tvDetailTitle = findViewById(R.id.tvDetailTitle);
         ivDetailThumbnail = findViewById(R.id.ivDetailThumbnail);
+        tvDetailTitle = findViewById(R.id.tvDetailTitle);
         tvDetailDescription = findViewById(R.id.tvDetailDescription);
+        tvDetailType = findViewById(R.id.tvDetailType);
         tvDetailLink = findViewById(R.id.tvDetailLink);
 
         curGiveaway = Parcels.unwrap(getIntent().getParcelableExtra("giveaway"));
@@ -50,6 +52,7 @@ public class DetailActivity extends AppCompatActivity {
         // Set up text views
         tvDetailTitle.setText(curGiveaway.getTitle());
         tvDetailDescription.setText("Description: " + curGiveaway.getDescription());
+        tvDetailType.setText("Type of Giveaway: " + curGiveaway.getContentType());
         tvDetailLink.setText(Html.fromHtml(
                 String.format("<a href=\"%s\">Link to Giveaway</a>", curGiveaway.getGiveawayUrl())));
         tvDetailLink.setMovementMethod(LinkMovementMethod.getInstance());

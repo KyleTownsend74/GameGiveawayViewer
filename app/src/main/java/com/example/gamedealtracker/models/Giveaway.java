@@ -10,6 +10,7 @@ public class Giveaway {
     String title;
     String description;
     String thumbnailUrl;
+    String contentType;
     String giveawayUrl;
 
     // Create giveaway from Json object
@@ -20,6 +21,7 @@ public class Giveaway {
         giveaway.title = jsonObject.getString("title");
         giveaway.description = jsonObject.getString("description");
         giveaway.thumbnailUrl = jsonObject.getString("thumbnail");
+        giveaway.contentType = jsonObject.getString("type");
         giveaway.giveawayUrl = jsonObject.getString("open_giveaway_url");
 
         return giveaway;
@@ -35,6 +37,10 @@ public class Giveaway {
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
+    }
+
+    public String getContentType() {
+        return contentType;
     }
 
     public String getGiveawayUrl() {
