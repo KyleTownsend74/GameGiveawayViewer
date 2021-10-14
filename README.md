@@ -9,6 +9,9 @@ The following features have been implemented:
 - User can view giveaways for video games and related items (e.g. DLC, In-Game Loot, etc.)
 - User can browse giveaways on all platforms, or narrow down their search for supported platforms. 
     - Current supported platforms include PC, PlayStation 4, and Xbox One.
+- User can view details about a giveaway.
+    - Details include the giveaway description, the giveaway type, and a link to the giveaway.
+    - Tapping on the link will open the user's web browser and direct them to the giveaway site.
 
 ## Video Walkthrough
 
@@ -22,3 +25,4 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
 - [OkHttp](https://github.com/square/okhttp) - Efficient HTTP client for Android and Java
+- [Parceler](https://github.com/johncarl81/parceler) - Android Parcelable boilerplate code generator
