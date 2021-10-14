@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView tvDetailTitle;
     private ImageView ivDetailThumbnail;
     private TextView tvDetailDescription;
+    private TextView tvDetailLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +31,27 @@ public class DetailActivity extends AppCompatActivity {
         tvDetailTitle = findViewById(R.id.tvDetailTitle);
         ivDetailThumbnail = findViewById(R.id.ivDetailThumbnail);
         tvDetailDescription = findViewById(R.id.tvDetailDescription);
+        tvDetailLink = findViewById(R.id.tvDetailLink);
 
         curGiveaway = Parcels.unwrap(getIntent().getParcelableExtra("giveaway"));
 
-        tvDetailTitle.setText(curGiveaway.getTitle());
-        tvDetailDescription.setText("Description: " + curGiveaway.getDescription());
+        // Call method to set up UI
+        setUpUi();
+    }
 
+    // Sets up DetailActivity UI with proper content from curGiveaway
+    private void setUpUi() {
+        // Set up image view
         Glide.with(this)
                 .load(curGiveaway.getThumbnailUrl())
                 .placeholder(new ColorDrawable(Color.LTGRAY))
                 .into(ivDetailThumbnail);
+
+        // Set up text views
+        tvDetailTitle.setText(curGiveaway.getTitle());
+        tvDetailDescription.setText("Description: " + curGiveaway.getDescription());
+        tvDetailLink.setText(Html.fromHtml(
+                String.format("<a href=\"%s\">Link to Giveaway</a>", curGiveaway.getGiveawayUrl())));
+        tvDetailLink.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

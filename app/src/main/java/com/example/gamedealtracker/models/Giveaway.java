@@ -10,6 +10,7 @@ public class Giveaway {
     String title;
     String description;
     String thumbnailUrl;
+    String giveawayUrl;
 
     // Create giveaway from Json object
     public static Giveaway fromJsonObject(JSONObject jsonObject) throws JSONException {
@@ -19,6 +20,7 @@ public class Giveaway {
         giveaway.title = jsonObject.getString("title");
         giveaway.description = jsonObject.getString("description");
         giveaway.thumbnailUrl = jsonObject.getString("thumbnail");
+        giveaway.giveawayUrl = jsonObject.getString("open_giveaway_url");
 
         return giveaway;
     }
@@ -33,5 +35,9 @@ public class Giveaway {
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
+    }
+
+    public String getGiveawayUrl() {
+        return giveawayUrl;
     }
 }
