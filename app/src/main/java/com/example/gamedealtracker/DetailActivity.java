@@ -51,8 +51,10 @@ public class DetailActivity extends AppCompatActivity {
 
         // Set up text views
         tvDetailTitle.setText(curGiveaway.getTitle());
-        tvDetailDescription.setText("Description: " + curGiveaway.getDescription());
-        tvDetailType.setText("Type of Giveaway: " + curGiveaway.getContentType());
+        tvDetailDescription.setText(Html.fromHtml(
+                String.format("<b>Description:</b> %s", curGiveaway.getDescription())));
+        tvDetailType.setText(Html.fromHtml(
+                String.format("<b>Type of Giveaway:</b> %s", curGiveaway.getContentType())));
         tvDetailLink.setText(Html.fromHtml(
                 String.format("<a href=\"%s\">Link to Giveaway</a>", curGiveaway.getGiveawayUrl())));
         tvDetailLink.setMovementMethod(LinkMovementMethod.getInstance());
